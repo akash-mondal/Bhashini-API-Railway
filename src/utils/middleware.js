@@ -1,4 +1,13 @@
-import "./logger.js";
+
+
+export const info = (...params) => {
+  console.log(...params);
+};
+
+export const error = (...params) => {
+  console.error(...params);
+};
+
 
 export const unknownEndpoint = (req, res) => {
   res.status(404).send({ error: `uknonwn endpoint` });
