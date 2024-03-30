@@ -35,9 +35,10 @@ app.use('/tts', ttsRoutes);
 app.use('/nmt_tts', nmtTtsRoutes);
 app.use('/asr_nmt_tts', asrNmtTtsRoutes);
 app.post('/asr', async (req, res) => {
-  const { sourceLang, base64Audio } = req.body;
+  let { sourceLang, base64Audio } = req.body;
   try {
-    const result = await bhashini.asr(sourceLang, base64Audio);
+    let lang1= sourceLang;
+    const result = await bhashini.asr(lang1, base64Audio);
     res.json({result});
   } catch (error) {
     res.status(500).json({ error: error.message });
