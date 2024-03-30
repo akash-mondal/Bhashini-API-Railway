@@ -24,9 +24,9 @@ app.use(cors());
 
 // request logger middleware
 app.use(morgan("tiny"));
-const BHASHINI_USER_ID = 'user_id_value';
-const BHASHINI_ULCA_API_KEY = 'Ulca_api_value';
-const BHASHINI_INFERENCE_API_KEY = 'inference_api_value';
+const BHASHINI_USER_ID = 'c52783f465184b9ca6cd7cc26f5cd1aa';
+const BHASHINI_ULCA_API_KEY = '365a9b416f-7998-4c9c-bcd2-e3895fc30dc0';
+const BHASHINI_INFERENCE_API_KEY = '-ZMTsWoHLAsGSKpgnvuwPF3LJUK71XPdYxnMPW6dC55JfDa_Sgy4vYi6JHi7ZnE0';
 bhashini.auth(BHASHINI_USER_ID, BHASHINI_ULCA_API_KEY, BHASHINI_INFERENCE_API_KEY);
 
 // Routes
