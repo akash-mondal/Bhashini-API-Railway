@@ -29,12 +29,20 @@ const BHASHINI_INFERENCE_API_KEY = '-ZMTsWoHLAsGSKpgnvuwPF3LJUK71XPdYxnMPW6dC55J
 bhashini.auth(BHASHINI_USER_ID, BHASHINI_ULCA_API_KEY, BHASHINI_INFERENCE_API_KEY);
 
 // Routes
-app.use('/asr', asrRoutes);
 app.use('/asr_nmt', asrNmtRoutes);
 app.use('/nmt', nmtRoutes);
 app.use('/tts', ttsRoutes);
 app.use('/nmt_tts', nmtTtsRoutes);
 app.use('/asr_nmt_tts', asrNmtTtsRoutes);
+app.post('/asr', async (req, res) => {
+  const { sourceLang, base64Audio } = req.body;
+  try {
+    const result = await bhashini.asr(sourceLang, base64Audio);
+    res.json({result});
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
 
 // Default route
 app.get('/', (req, res) => {
